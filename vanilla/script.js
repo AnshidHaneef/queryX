@@ -33,9 +33,7 @@ function typeText(element, text) {
     }, 20)
 }
 
-// generate unique ID for each message div of bot
-// necessary for typing text effect for that specific reply
-// without unique ID, typing text will work on every element
+
 function generateUniqueId() {
     const timestamp = Date.now();
     const randomNumber = Math.random();
@@ -104,6 +102,7 @@ const handleSubmit = async (e) => {
         const parsedData = data.bot.trim()                        // trims any trailing spaces/'\n' 
 
         console.log({parsedData});
+        
         typeText(messageDiv, parsedData)
     } else {
         const err = await response.text()
